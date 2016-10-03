@@ -46,7 +46,7 @@
 </span>
     <h1 class="post-title">CS231n笔记lecture3</h1>
     <section class="post-content">
-      <p>Lecture3主要包含了两部分的内容：损失函数loss function和优化optimization。loss function是定义出你要优化的目标函数。optimization是在多轮的迭代过程中，每一轮用梯度gradient来调整参数W，使得loss function逐渐减小最终收敛到一个极小值（局部极小）。loss function达到极小值时的W就是我们训练好的参数，它可以理解为一个超平面hyperplane。当拿到一幅图像X需要对这幅图像进行分类时，只需将它输入到score function中，由f(W,X)即可给出分类结果（看score function属于哪一类的分数最高就将图像分到那一类中去）。</p>
+      <p>Lecture3主要包含了两部分的内容：损失函数loss function和优化optimization。loss function是定义出你要优化的目标函数。optimization是在多轮的迭代过程中，每一轮用梯度gradient来调整参数W，使得loss function逐渐减小最终收敛到一个极小值（局部极小）。loss function达到极小值时的W就是我们训练好的参数，它可以理解为一个超平面hyperplane。当拿到一幅图像x需要对这幅图像进行分类时，只需将它输入到score function中，由f(W,x)即可给出分类结果（看score function属于哪一类的分数最高就将图像分到那一类中去）。</p>
 <h2 id="1-loss-function"><a href="#1-loss-function" class="headerlink" title="1.loss function"></a>1.loss function</h2><p>主流的loss function有两种：SVM 和 Softmax。其中SVM更为常见。</p>
 <h3 id="1-1-SVM-loss"><a href="#1-1-SVM-loss" class="headerlink" title="1.1 SVM loss"></a>1.1 SVM loss</h3><p>score function:<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/score_function.png" alt="score_function" title="score_function"></p>
 <p>SVM loss:<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/SVM_loss.png" alt="score_function" title="score_function"><br>但是这个SVM loss有一个小bug。那就是，假设有一个W使得SVM loss=0，此时将W扩大任意倍数得到的loss将保持不变，即W不唯一。解决这个问题的方法是在原有的SVM loss后面加上一个正则项regularization。于是得到：<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/weight_regularization.png" alt="weight_regularization" title="weight_regularization"><br>其中$\lambda$是超参数，一般用交叉验证cross validation的方式来确定。$\lambda$有多种形式，最常用的是L2 regularization。<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/regularization_form.png" alt="regularization_form" title="regularization_form"></p>
@@ -84,8 +84,8 @@
     
     <span class="page-number">•</span>
     
-    <a class="older-posts" href="/Andy0731.github.io/2016/10/02/display image with asset/">
-        display image with asset →
+    <a class="older-posts" href="/Andy0731.github.io/2016/10/02/welcome/">
+        welcome →
     </a>
     
 </nav>
