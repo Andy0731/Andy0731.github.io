@@ -40,6 +40,31 @@
   <article class="post">
     <header class="post-header">
       <span class="post-meta">
+      <time datetime="2016-10-04T08:11:35.000Z" itemprop="datePublished">
+          2016-10-04
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/Andy0731.github.io/2016/10/04/CS231n笔记lecture4/">CS231n笔记lecture4</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        1.BP算法lecture4详细讲解了BP算法的运算过程。BP算法的每一轮迭代中，首先从底层到顶层forward计算每一个神经元的参数w，并将这一层的function的梯度gradient缓存起来以便backward时使用。当forward到达最后一层之后再从顶层到底层backward进行梯度的传递和参数w的更新。梯度传递运用了链式规则chain rule。
+其中$\frac{\partial L}{\partial z}$是一个向量，
+      
+      </p>
+      
+      <p>
+          <a href="/Andy0731.github.io/2016/10/04/CS231n笔记lecture4/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
       <time datetime="2016-10-03T07:22:42.000Z" itemprop="datePublished">
           2016-10-03
       </time>
@@ -106,7 +131,24 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <script type="text/javascript" src="/Andy0731.github.io/js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="/Andy0731.github.io/js/index.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript" src="/Andy0731.github.io/js/index.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
