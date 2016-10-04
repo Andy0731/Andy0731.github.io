@@ -52,6 +52,7 @@
 <h2 id="2-神经网络"><a href="#2-神经网络" class="headerlink" title="2.神经网络"></a>2.神经网络</h2><p>接下来将人类的神经元系统与人工神经网络进行了对比：<br><img src="/Andy0731.github.io/2016/10/04/CS231n笔记lecture4/neural.png" alt="neural" title="neural"></p>
 <p>其中重点对比了几种不同的激活函数activation function的区别：<br><img src="/Andy0731.github.io/2016/10/04/CS231n笔记lecture4/activation.png" alt="activation" title="activation"><br>sigmoid函数是最先提出来的，由于是非线性函数，运行效率较低。<br>Tanh是对sigmoid函数的一种改进，它能够使输出的中心落在零点，因此被更多人采用。另外tanh与sigmoid的关系为：tanh(x)=2sigmoid(2x)-1.<br>ReLU在2012年提出之后逐渐成为主流，因为它收敛更快，函数更简单。但是它有一个很大的问题是它有时会导致“死区”的出现，尤其是步长设置过大的时候。当步长设置较小时能够减小这种问题出现的概率。<br>Leaky ReLU能够在一定程度上减小ReLU的“死区”问题，但并不能保证。KaiMing He提出Leaky ReLU中的参数$\alpha$也是一个需要放到网络中进行训练的参数。目前这方面还没有一个清晰的认识。</p>
 <p>深度神经网的另一个性质是，当网络的神经元个数增加时，网络的效果会越来越好。至于过拟合的问题，只需要调整好$\lambda$就可以抑制过拟合。所以，通常网络越大越好。需要考虑的问题是，当网络增大的时候，计算复杂度会增加，训练时间会比较长。</p>
+<p>本次课程用到的深度学习框架：Caffe和Torch。</p>
 
     </section>
     <footer class="post-footer">
