@@ -56,6 +56,7 @@
 <h3 id="2-1-Mini-batch-Gradient-Descent"><a href="#2-1-Mini-batch-Gradient-Descent" class="headerlink" title="2.1 Mini-batch Gradient Descent"></a>2.1 Mini-batch Gradient Descent</h3><p>如果每一轮循环中都把所有的点全部用来求梯度会导致每一轮计算量太大计算速度太慢。解决这个问题的一个常用办法是每一轮循环中随机的取一小批（32或者64或者128或者256个）datapoint来求梯度。这样每一轮的计算量都减小了很多，虽然会导致循环次数增加，但总的时间会缩短。每轮随机取一个Mini-batch进行训练的另一个影响是使得优化过程的噪声增大，但总的趋势是趋于收敛的。<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/optimization_progress.png" alt="optimization_progress" title="optimization_progress"></p>
 <h3 id="2-2-step-size"><a href="#2-2-step-size" class="headerlink" title="2.2 step size"></a>2.2 step size</h3><p>另一个需要考虑的参数是训练步长step size。这也是一个超参数hyperparameter，一般通过交叉验证cross validation的方法来确定。<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/step_size.png" alt="step_size" title="step_size"></p>
 <p>课程最后提到了传统图片分类与深度神经网进行图片分类的区别。传统的思路是先提取图像的特征，包括颜色直方图、SIFT/HOG特征、词袋模型等，然后用一个向量来表示这个统计特征，再用分类器对这些向量进行训练和分类。而深度学习的思路是直接将原始的图像输入到网络中，网络从底层到顶层不断对像素进行抽象，最后输入到分类器中，训练使用BP算法。深度学习是端到端end-to-end的训练.<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/deep_learning.png" alt="deep_learning" title="deep_learning"></p>
+<p>注：所有材料均来自<a href="http://cs231n.stanford.edu/" target="_blank" rel="external">斯坦福CS231n深度学习课程</a></p>
 
     </section>
     <footer class="post-footer">
