@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>CS231n笔记lecture3 | STAY HUNGRY, STAY FOOLISH</title>
+  <meta name="description" content="enjoy your life and realize your dream" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/Andy0731.github.io/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="STAY HUNGRY, STAY FOOLISH"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="site-head"  style="background-image: url(//blog.ghost.org/content/images/2013/Nov/cover.png)" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/Andy0731.github.io/"><img src="//blog.ghost.org/content/images/2013/Nov/bloglogo_1-1.png" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">STAY HUNGRY, STAY FOOLISH</h1>
+            <h2 class="blog-description">enjoy your life and realize your dream</h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2016-10-03T07:22:42.000Z" itemprop="datePublished">
+          2016-10-03
+      </time>
+    
+</span>
+    <h1 class="post-title">CS231n笔记lecture3</h1>
+    <section class="post-content">
+      <p>Lecture3主要包含了两部分的内容：损失函数loss function和优化optimization。loss function是定义出你要优化的目标函数。optimization是在多轮的迭代过程中，每一轮用梯度gradient来调整参数W，使得loss function逐渐减小最终收敛到一个极小值（局部极小）。loss function达到极小值时的W就是我们训练好的参数，它可以理解为一个超平面hyperplane。当拿到一幅图像x需要对这幅图像进行分类时，只需将它输入到score function中，由f(W,x)即可给出分类结果（看score function属于哪一类的分数最高就将图像分到那一类中去）。</p>
+<h2 id="1-loss-function"><a href="#1-loss-function" class="headerlink" title="1.loss function"></a>1.loss function</h2><p>主流的loss function有两种：SVM 和 Softmax。其中SVM更为常见。</p>
+<h3 id="1-1-SVM-loss"><a href="#1-1-SVM-loss" class="headerlink" title="1.1 SVM loss"></a>1.1 SVM loss</h3><p>score function:<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/score_function.png" alt="score_function" title="score_function"></p>
+<p>SVM loss:<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/SVM_loss.png" alt="score_function" title="score_function"><br>但是这个SVM loss有一个小bug。那就是，假设有一个W使得SVM loss=0，此时将W扩大任意倍数得到的loss将保持不变，即W不唯一。解决这个问题的方法是在原有的SVM loss后面加上一个正则项regularization。于是得到：<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/weight_regularization.png" alt="weight_regularization" title="weight_regularization"><br>其中$\lambda$是超参数，一般用交叉验证cross validation的方式来确定。$\lambda$有多种形式，最常用的是L2 regularization。<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/regularization_form.png" alt="regularization_form" title="regularization_form"></p>
+<h3 id="1-2-Softmax-Classifier"><a href="#1-2-Softmax-Classifier" class="headerlink" title="1.2 Softmax Classifier"></a>1.2 Softmax Classifier</h3><p>也称多项式逻辑回归Multinomial Logistic Regression。<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/softmax.png" alt="softmax" title="softmax"></p>
+<p>SVM vs. Softmax<br>SVM会在高维空间中产生一个margin，当datapoint在这个margin里面变动时loss保持不变，因此具有一定的鲁棒性robust。而softmax没有这种性质，每一个datapoint变动时都会使loss的值产生变化。</p>
+<h2 id="2-optimization"><a href="#2-optimization" class="headerlink" title="2.optimization"></a>2.optimization</h2><p>对loss function进行优化时需要求它的梯度gradient。求gradient有一种笨方法：对每一维单独求一次梯度，最后将每一维的梯度组合起来表示整个loss function的梯度。这种方法称为numerical gradient。<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/gradient.png" alt="gradient" title="gradient"><br>但是牛顿等人发明了微积分，利用微积分可以直接求得函数的梯度，称为Analytic gradient。两种方法的对比：<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/compare.png" alt="compare" title="compare"></p>
+<h3 id="2-1-Mini-batch-Gradient-Descent"><a href="#2-1-Mini-batch-Gradient-Descent" class="headerlink" title="2.1 Mini-batch Gradient Descent"></a>2.1 Mini-batch Gradient Descent</h3><p>如果每一轮循环中都把所有的点全部用来求梯度会导致每一轮计算量太大计算速度太慢。解决这个问题的一个常用办法是每一轮循环中随机的取一小批（32或者64或者128或者256个）datapoint来求梯度。这样每一轮的计算量都减小了很多，虽然会导致循环次数增加，但总的时间会缩短。每轮随机取一个Mini-batch进行训练的另一个影响是使得优化过程的噪声增大，但总的趋势是趋于收敛的。<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/optimization_progress.png" alt="optimization_progress" title="optimization_progress"></p>
+<h3 id="2-2-step-size"><a href="#2-2-step-size" class="headerlink" title="2.2 step size"></a>2.2 step size</h3><p>另一个需要考虑的参数是训练步长step size。这也是一个超参数hyperparameter，一般通过交叉验证cross validation的方法来确定。<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/step_size.png" alt="step_size" title="step_size"></p>
+<p>课程最后提到了传统图片分类与深度神经网进行图片分类的区别。传统的思路是先提取图像的特征，包括颜色直方图、SIFT/HOG特征、词袋模型等，然后用一个向量来表示这个统计特征，再用分类器对这些向量进行训练和分类。而深度学习的思路是直接将原始的图像输入到网络中，网络从底层到顶层不断对像素进行抽象，最后输入到分类器中，训练使用BP算法。深度学习是端到端end-to-end的训练.<br><img src="/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/deep_learning.png" alt="deep_learning" title="deep_learning"></p>
+<p>注：所有材料均来自<a href="http://cs231n.stanford.edu/" target="_blank" rel="external">斯坦福CS231n深度学习课程</a></p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>Andy</h4>
+    <p>A reader, developer and traveller. Spends his time travelling the world with a bag of kites. Likes journalism and coding.</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=https://github.com/Andy0731/Andy0731.github.io/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/Andy0731/Andy0731.github.io/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://github.com/Andy0731/Andy0731.github.io/Andy0731.github.io/2016/10/03/CS231n笔记lecture3/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/Andy0731.github.io/2016/10/04/CS231n笔记lecture4/">
+        ← CS231n笔记lecture4
+    </a>
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/Andy0731.github.io/2016/10/02/welcome/">
+        welcome →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/Andy0731.github.io/">STAY HUNGRY, STAY FOOLISH</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/Andy0731.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/Andy0731.github.io/js/index.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
