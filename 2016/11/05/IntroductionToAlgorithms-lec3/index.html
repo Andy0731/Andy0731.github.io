@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>IntroductionToAlgorithms_lec3 | STAY HUNGRY, STAY FOOLISH</title>
+  <meta name="description" content="enjoy your life and realize your dream" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/Andy0731.github.io/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="STAY HUNGRY, STAY FOOLISH"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="site-head"  style="background-image: url(//blog.ghost.org/content/images/2013/Nov/cover.png)" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/Andy0731.github.io/"><img src="//blog.ghost.org/content/images/2013/Nov/bloglogo_1-1.png" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">STAY HUNGRY, STAY FOOLISH</h1>
+            <h2 class="blog-description">enjoy your life and realize your dream</h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2016-11-05T13:44:21.000Z" itemprop="datePublished">
+          2016-11-05
+      </time>
+    
+</span>
+    <h1 class="post-title">IntroductionToAlgorithms_lec3</h1>
+    <section class="post-content">
+      <p>举了几个例子来说明divide and conquer 思想的应用</p>
+<h3 id="1-Binary-Search"><a href="#1-Binary-Search" class="headerlink" title="1.Binary Search"></a>1.Binary Search</h3><p>target: find an element in a sorted array.<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/binary_search.png" alt="binary_search" title="binary_search"><br>$F(n) = \Theta(\lg n)$</p>
+<h3 id="2-Powering-a-number"><a href="#2-Powering-a-number" class="headerlink" title="2.Powering a number"></a>2.Powering a number</h3><p>target: compute $a^n$, where $n\in \mathbb{N}$<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/powering.png" alt="powering" title="powering"></p>
+<h3 id="3-Computing-fibonacci-numbers"><a href="#3-Computing-fibonacci-numbers" class="headerlink" title="3.Computing fibonacci numbers"></a>3.Computing fibonacci numbers</h3><p>target:<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/fibonacci.png" alt="fibonacci" title="fibonacci"></p>
+<p>normal way:<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/fibonacci1.png" alt="fibonacci1" title="fibonacci1"></p>
+<p>faster way:<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/fibonacci2.png" alt="fibonacci2" title="fibonacci2"></p>
+<h3 id="4-Matrix-multiplication"><a href="#4-Matrix-multiplication" class="headerlink" title="4.Matrix multiplication"></a>4.Matrix multiplication</h3><p>target:<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/matrix.png" alt="matrix" title="matrix"></p>
+<p>normal way:<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/matrix1.png" alt="matrix1" title="matrix1"></p>
+<p>divide and conquer algorithm:<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/matrix2.png" alt="matrix2" title="matrix2"><br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/matrix3.png" alt="matrix3" title="matrix3"></p>
+<p>Strassen’s idea:<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/matrix4.png" alt="matrix4" title="matrix4"><br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/matrix5.png" alt="matrix5" title="matrix5"><br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/matrix6.png" alt="matrix6" title="matrix6"></p>
+<h3 id="5-VSLI-layout"><a href="#5-VSLI-layout" class="headerlink" title="5.VSLI layout"></a>5.VSLI layout</h3><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/vlsi.png" alt="vlsi" title="vlsi">
+<p>normal way:<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/vlsi1.png" alt="vlsi1" title="vlsi1"></p>
+<p>H-tree embedding:<br><img src="/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/vlsi2.png" alt="vlsi2" title="vlsi2"></p>
+<h3 id="6-Conclusion"><a href="#6-Conclusion" class="headerlink" title="6.Conclusion"></a>6.Conclusion</h3>
+<p>PS: All the materials come from <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/index.htm" target="_blank" rel="external">MIT algorithms</a></p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>Andy</h4>
+    <p>A reader, developer and traveller. Spends his time travelling the world with a bag of kites. Likes journalism and coding.</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=https://github.com/Andy0731/Andy0731.github.io/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/Andy0731/Andy0731.github.io/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://github.com/Andy0731/Andy0731.github.io/Andy0731.github.io/2016/11/05/IntroductionToAlgorithms-lec3/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/Andy0731.github.io/2016/11/03/algorithm/">
+        algorithm →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/Andy0731.github.io/">STAY HUNGRY, STAY FOOLISH</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/Andy0731.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/Andy0731.github.io/js/index.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
